@@ -1,7 +1,7 @@
 # TICKET-01: Project Initialization & Environment Setup
 
 **Priority:** P0 – Critical  
-**Status:** In Progress — runtime checks reported complete; Git setup remains to verify  
+**Status:** Done — implementation and runtime checks reported complete  
 **Estimated effort:** 30–45 minutes  
 **Dependencies:** None
 
@@ -33,7 +33,7 @@ Initialize the Voice AI Doctor Appointment Assistant project with a clean, modul
 
 ### 3.1 Repository Initialization
 
-- [ ] Initialize the Git repository with the name `careline-ai`.
+- [x] Initialize the Git repository with the name `careline-ai` (user reports complete).
 - [x] Create separate frontend and backend directories.
 - [x] Add `docker-compose.yml` to run the frontend and backend services for development.
 - [x] Add a backend `Dockerfile` and frontend `Dockerfile`; install all OS and application dependencies in the appropriate container image.
@@ -184,7 +184,7 @@ careline-ai/
 - [x] SQLite data volume is created and present (user reported).
 - [x] SQLite data remains available after the application containers are recreated (user reports data persisted securely).
 - [x] Health endpoint returns HTTP 200 (verified by the reported healthy response).
-- [ ] Frontend successfully communicates with the backend.
+- [x] Frontend successfully communicates with the backend.
 - [x] All required Python dependencies import without errors (user reports verified).
 - [x] Pipecat provider and transport dependencies installed successfully (user reported Python libraries installed correctly).
 - [x] Environment variables are loaded correctly (user reported).
