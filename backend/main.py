@@ -4,11 +4,15 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from config import settings
+from database.models import initialize_database
+from database.seed import seed_database
+from routes import appointments, dashboard, doctors
 
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
-    settings.database_path.parent.mkdir(parents=True, exist_ok=True)
+    initialize_database()
+    seed_database()
     yield
 
 
@@ -20,6 +24,9 @@ app.add_middleware(
     allow_methods=["GET"],
     allow_headers=["*"],
 )
+app.include_router(doctors.router)
+app.include_router(appointments.router)
+app.include_router(dashboard.router)
 
 
 @app.get("/api/health")

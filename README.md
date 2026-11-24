@@ -50,3 +50,22 @@ docker compose down
 ```
 
 The database file is stored in the `careline_data` named volume. `docker compose down -v` removes named volumes, including the database; use it only when you intend to erase local data.
+
+## Appointment API
+
+The backend initializes SQLite and seeds five fictional doctors with seven days of appointment slots on startup. The dashboard API is read-only:
+
+- `GET /api/doctors?specialty=Cardiology`
+- `GET /api/doctors/{doctor_id}`
+- `GET /api/doctors/{doctor_id}/slots?date=YYYY-MM-DD`
+- `GET /api/appointments?status=BOOKED&date=YYYY-MM-DD`
+- `GET /api/appointments/{appointment_id}`
+- `GET /api/dashboard/summary`
+
+Appointment booking and cancellation are service functions only; public mutation endpoints are intentionally not exposed. Dashboard appointment responses mask phone numbers.
+
+Run the focused backend tests from the repository root:
+
+```powershell
+docker compose exec backend python -m pytest tests -v
+```

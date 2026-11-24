@@ -3,3 +3,5 @@ uvicorn[standard]==0.54.0
 pydantic-settings==2.16.3
 python-dotenv==1.2.4
 pipecat-ai[google,elevenlabs,silero,webrtc]==1.17.0
+phonenumbers==9.0.44
+pytest==9.0.2
